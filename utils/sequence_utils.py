@@ -1,7 +1,6 @@
 import seaborn as sns
 import matplotlib.pyplot as plt
-
-
+import pandas as pd
 
 def plot_token_count(column, tokenizer):
     token_lens = []
@@ -11,3 +10,12 @@ def plot_token_count(column, tokenizer):
     sns.distplot(token_lens)
     plt.xlim([0, 500])
     plt.xlabel('Token count')
+
+def filter_string(df, name_col, max):
+  return df[df[name_col].astype(str).apply(lambda x: len(x.split())) <= max]
+
+
+
+
+
+
